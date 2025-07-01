@@ -1,64 +1,43 @@
 <script lang="ts" setup>
-import Button from 'primevue/button';
+import { useTimer } from '@/composables/useTimer';
+import TimerStatusCard from './components/TimerStatusCard.vue';
+import IntervalSettings from './components/IntervalSettings.vue';
+import ControlButtons from './components/ControlButtons.vue';
+import LastBreakInfo from './components/LastBreakInfo.vue';
+import HealthTips from './components/HealthTips.vue';
+import { BicepsFlexed } from 'lucide-vue-next';
 
-console.log("Hello from the popup!");
+const { handleStartTimer, handleStopTimer } = useTimer();
+
+async function quickRestart() {
+  await handleStartTimer();
+}
 </script>
 
 <template>
-  <div>
-    <img src="/icon-with-shadow.svg" />
-    <h1>vite-plugin-web-extension</h1>
-    <p>
-      Template: <code>vue-ts</code>
-    </p>
-    <Button label="Click Me" />
+  <div class="bg-gradient-to-b from-[#a18cd1] to-[#6d5bba] h-full flex flex-col">
+    <div class="bg-white/10 backdrop-blur-sm p-6 text-center flex-shrink-0">
+      <div class="w-16 aspect-square rounded-full ring ring-white/80 flex items-center justify-center overflow-hidden mx-auto">
+        <BicepsFlexed class="w-10 h-10 object-contain object-center" />
+      </div>
+      <h1 class="text-2xl font-bold text-white mt-3">BreakWise</h1>
+      <p class="text-white/80 text-sm">Take care of your health 💪</p>
+    </div>
+
+    <div class="p-6 space-y-6 flex-1 overflow-y-auto">
+      <TimerStatusCard />
+
+      <IntervalSettings />
+
+      <ControlButtons 
+        @start-timer="handleStartTimer"
+        @stop-timer="handleStopTimer"
+        @quick-restart="quickRestart"
+      />
+
+      <LastBreakInfo />
+
+      <HealthTips />
+    </div>
   </div>
 </template>
-
-<style>
-html,
-body {
-  width: 300px;
-  height: 400px;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  background-color: rgb(36, 36, 36);
-}
-
-body > div {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
-}
-
-img {
-  width: 200px;
-  height: 200px;
-}
-
-h1 {
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-  margin: 0;
-}
-
-p {
-  color: white;
-  opacity: 0.7;
-  margin: 0;
-}
-
-code {
-  font-size: 12px;
-  padding: 2px 4px;
-  background-color: #ffffff24;
-  border-radius: 2px;
-}
-</style>

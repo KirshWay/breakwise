@@ -1,14 +1,12 @@
 import Popup from "./pages/Popup.vue";
 import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-import Aura from "@primeuix/themes/aura";
+import { createPinia } from "pinia";
+import "./main.css";
 
 const app = createApp(Popup);
 
-app.use(PrimeVue, {
-  theme: {
-    preset: Aura,
-  },
-});
+const pinia = createPinia();
+
+app.use(pinia);
 
 app.mount("body");
