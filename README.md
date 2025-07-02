@@ -1,6 +1,8 @@
 # BreakWise: Your Healthy Break Assistant
 
-![BreakWise Logo](./public/icon-with-shadow.svg)
+<p align="center">
+  <img src="./public/icon.png" alt="BreakWise Logo" width="150" height="150" />
+</p>
 
 **BreakWise** is a simple and elegant browser extension designed for those who spend a lot of time at the computer. It helps you take care of your health by reminding you to take regular breaks. It's the perfect tool to prevent eye strain, back pain, and maintain productivity throughout the day.
 
