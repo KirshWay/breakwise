@@ -23,7 +23,7 @@
     "cross-env": "7.0.3",
     "dotenv-cli": "8.0.0",
     "typescript": "5.9.3",
-    "vite": "5.4.21",
+    "vite": "7.3.1",
     "vite-plugin-web-extension": "4.5.0",
     "vue-tsc": "1.8.27",
     "webextension-polyfill": "0.12.0"
